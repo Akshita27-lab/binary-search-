@@ -1,0 +1,21 @@
+class Solution {
+  public:
+   int binarysearch(vector<int> &arr, int k) {
+        int start = 0;
+        int end = arr.size() - 1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2; // Calculate mid index
+
+            if (arr[mid] == k) { // Check if mid element is the target
+                return mid; // Return the index of the target
+            }
+            if (arr[mid] < k) { // If the target is greater than mid
+                start = mid + 1; // Search in the right half
+            } else { // If the target is less than mid
+                end = mid - 1; // Search in the left half
+            }
+        }
+        return -1; // Target not found
+    }
+};
